@@ -48,12 +48,15 @@ class Students(models.Model):
     gender = models.CharField(max_length=255)
     profile_pic = models.FileField()
     address = models.TextField()
+    first_name = models.CharField(max_length=200,null=True)
+    last_name =  models.CharField(max_length=200,null=True)
+    email =  models.CharField(max_length=200,null=True)
     course_id = models.ForeignKey(Courses, on_delete=models.DO_NOTHING)
-    session_start_year = models. DateField()
+    session_start_year = models.DateField()
     session_end_year = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    objects = models.Manager()
+    
 
 
 @receiver(post_save, sender = CustomUser)
